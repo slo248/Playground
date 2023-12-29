@@ -1,14 +1,20 @@
-#include <iostream>
-
-#include "MyMath.h"
-using namespace std;
+#include <SFML/Graphics.hpp>
 
 int main() {
-    cout << "Hello World!" << endl;
-    cout << "This is a test" << endl;
-    cout << "4 + 3 = " << MyMath::add(4, 3) << endl;
-    cout << "4 - 3 = " << MyMath::subtract(4, 3) << endl;
-    cout << "4 * 3 = " << MyMath::multiply(4, 3) << endl;
-    cout << "4 / 3 = " << MyMath::divide(4, 3) << endl;
+    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+    sf::CircleShape shape(100.f);
+    shape.setFillColor(sf::Color::Green);
+
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) window.close();
+        }
+
+        window.clear();
+        window.draw(shape);
+        window.display();
+    }
+
     return 0;
 }
