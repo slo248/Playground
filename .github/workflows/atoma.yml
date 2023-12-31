@@ -18,3 +18,11 @@ jobs:
 
       - name: Build program
         run: g++ -o program main.cpp
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: run code
+        run: g++ -o program main.cpp && ./program
