@@ -1,0 +1,17 @@
+name: build-test
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "The program will be built soon."
+      name: build program
+      uses: actions/checkout@v2
+      - name: build program
+        run: g++ -o program main.cpp
