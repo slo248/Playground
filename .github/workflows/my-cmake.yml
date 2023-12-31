@@ -23,4 +23,3 @@ jobs:
           cd build
           cmake ..
           make
-          ./Playground
