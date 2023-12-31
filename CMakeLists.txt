@@ -4,7 +4,9 @@ project(Playground)
 set(CMAKE_CXX_STANDARD 17)
 
 file(GLOB_RECURSE SOURCES "src/*.cpp")
-set(SFML_DIR "${CMAKE_SOURCE_DIR}/SFML-2.6.1")
+
+set(SFML_DIR "${CMAKE_SOURCE_DIR}/SFML-2.6.1/lib/cmake/SFML")
+find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 target_include_directories(${PROJECT_NAME} PUBLIC "${SFML_DIR}/include")
