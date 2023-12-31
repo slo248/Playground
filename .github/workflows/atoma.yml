@@ -10,8 +10,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "The program will be built soon."
-      name: build program
-      uses: actions/checkout@v2
-      - name: build program
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Echo message
+        run: echo "The program will be built soon."
+
+      - name: Build program
         run: g++ -o program main.cpp
