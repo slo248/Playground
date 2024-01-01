@@ -26,6 +26,7 @@ jobs:
         run: |
           git clone https://github.com/SFML/SFML.git
           cd SFML
+          git checkout 2.6.x
           mkdir build && cd build
           cmake -DBUILD_SHARED_LIBS=ON ..
           make
@@ -33,4 +34,7 @@ jobs:
 
       - name: Building with cmake
         run: |
-          g++ src/main.cpp -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system
+          mkdir build
+          cd build
+          cmake ..
+          make
