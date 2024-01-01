@@ -26,9 +26,8 @@ jobs:
         run: |
           git clone https://github.com/SFML/SFML.git
           cd SFML
-          mkdir build
-          cd build
-          cmake ..
+          mkdir build && cd build
+          cmake -DBUILD_SHARED_LIBS=ON ..
           make
           sudo make install
 
