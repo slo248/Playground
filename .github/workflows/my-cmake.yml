@@ -20,7 +20,7 @@ jobs:
       - name: Install sfml
         run: |
           sudo apt-get update
-          sudo apt-get install libsfml-dev
+          git clone https://github.com/SFML/SFML.git
 
       - name: Building with cmake
         run: |
