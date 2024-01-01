@@ -33,7 +33,4 @@ jobs:
 
       - name: Building with cmake
         run: |
-          mkdir build
-          cd build
-          cmake ..
-          make
+          g++ src/main.cpp -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system
