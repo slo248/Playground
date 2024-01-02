@@ -70,11 +70,11 @@ jobs:
 
       - name: Installing dependencies
         run: |
-          brew install sfml g++ gcc
+          brew install sfml
 
       - name: Building
         run: |
           mkdir build
           cd build
-          cmake -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_COMPILER=gcc ..
+          cmake -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ ..
           cmake --build . --config Release
