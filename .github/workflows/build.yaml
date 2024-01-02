@@ -54,12 +54,13 @@ jobs:
           cmake --build . --config Release
           cmake --install . --config Release
           cd ../..
+          choco install mingw
 
       - name: Building
         run: |
           mkdir build
           cd build
-          cmake ..
+          cmake -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_COMPILER=gcc ..
           cmake --build . --config Release
   MacOS-Build:
     runs-on: macos-latest
@@ -69,11 +70,11 @@ jobs:
 
       - name: Installing dependencies
         run: |
-          brew install sfml
+          brew install sfml g++ gcc
 
       - name: Building
         run: |
           mkdir build
           cd build
-          cmake ..
+          cmake -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_COMPILER=gcc ..
           cmake --build . --config Release

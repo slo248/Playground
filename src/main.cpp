@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <array>
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
@@ -15,6 +16,11 @@ int main() {
         window.draw(shape);
         window.display();
     }
+
+    sf::FloatRect rect(0, 0, 10, 10);
+    rect.getSize();
+    rect.getPosition();
+    std::array<int, 5> arr = {1, 2, 3, 4, 5};
 
     return 0;
 }
