@@ -1,0 +1,36 @@
+name: cmake
+
+on:
+  push:
+    paths-ignore:
+      - "README.md"
+    branches: [main, dev]
+  pull_request:
+    paths-ignore:
+      - "README.md"
+    branches: [main, dev]
+
+jobs:
+  build:
+    runs-on: "windows-latest"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Installing dependencies
+      - run: |
+          git clone https://github.com/SFML/SFML.git
+          cd SFML
+          git checkout 2.6.x
+          mkdir build && cd build
+          cmake -DBUILD_SHARED_LIBS=ON ..
+          cmake --build . --config Release
+          cmake --install . --config Release
+          cd ../..
+
+      - name: Building
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+          cmake --build . --config Release
