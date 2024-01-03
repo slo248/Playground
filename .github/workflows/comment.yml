@@ -1,4 +1,4 @@
-name: comment
+name: Create a comment on new issue
 
 on:
   issues:
@@ -9,5 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dump github context
-        shell: bash
         run: echo '${{ toJSON(github.event) }}' | jq
