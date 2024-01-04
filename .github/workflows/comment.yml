@@ -3,6 +3,7 @@ name: comment
 on:
   issues:
     types: [opened]
+    branches: [issue-comment]
 
 jobs:
   comment-with-actions:
