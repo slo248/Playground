@@ -11,6 +11,6 @@ target_include_directories(${PROJECT_NAME} PUBLIC include)
 # Testing
 include(CTest)
 
-add_executable(MathTest test/MathTest.cpp)
-target_link_libraries(${PROJECT_NAME})
-add_test(NAME Test COMMAND ${PROJECT_NAME})
+add_executable(MathTest test/MathTest.cpp src/MyMath.cpp)
+target_include_directories(MathTest PUBLIC include)
+add_test(NAME Test COMMAND MathTest)
