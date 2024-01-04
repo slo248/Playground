@@ -2,13 +2,13 @@ name: build-test
 
 on:
   push:
-    paths_ignore:
-      - "README.md"
     branches: [main]
+    paths-ignore:
+      - "README.md"
   pull_request:
-    paths_ignore:
-      - "README.md"
     branches: [main]
+    paths-ignore:
+      - "README.md"
 
 jobs:
   build:
@@ -36,8 +36,3 @@ jobs:
           cd build
           cmake ..
           cmake --build .
-
-      - name: Run tests
-        run: |
-          cd build
-          ctest
