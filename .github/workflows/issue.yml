@@ -21,8 +21,20 @@ jobs:
           body: |
             Hi, there! Thanks for opening this issue!
 
-            We will look into it as soon as possible.
+            We will look into it as soon as possible. If you have any questions, please feel free to ask them here.
 
-            If you have any questions, please feel free to ask them here.
+            Hope you have a nice day 🚀
 
-            Hope you have a nice day ❤️
+      - name: React
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const issueNumber = context.issue.number;
+            const repository = context.repo;
+            const octokit = github.getOctokit(core.getInput('token'));
+            await octokit.rest.reactions.createForIssue({
+              ...repository,
+              issue_number: issueNumber,
+              content: 'heart',
+            });
+          token: ${{ secrets.GITHUB_TOKEN }}
