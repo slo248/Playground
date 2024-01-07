@@ -32,8 +32,7 @@ jobs:
           script: |
             const issueNumber = context.issue.number;
             const repository = context.repo;
-            const octokit = github.getOctokit(core.getInput('token'));
-            const comments = await octokit.rest.issues.listComments({
+            const comments = await github.rest.issues.listComments({
               ...repository,
               issue_number: issueNumber,
             });
