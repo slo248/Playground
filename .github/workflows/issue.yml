@@ -1,8 +1,8 @@
-name: issue comment
+name: issue auto comment
 
 on:
-  issue_comment:
-    types: [created]
+  issues:
+    types: [opened]
 
 jobs:
   comment:
