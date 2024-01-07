@@ -19,4 +19,10 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Hi, there! Thanks for opening an issue!
+            Hi, there! Thanks for opening this issue!
+
+            We will look into it as soon as possible.
+
+            If you have any questions, please feel free to ask them here.
+
+            Hope you have a nice day ❤️
