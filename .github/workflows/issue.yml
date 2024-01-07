@@ -14,28 +14,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Get first comment ID
-        id: first-comment
+      - name: React to issue
         uses: actions/github-script@v5
         with:
           script: |
             const issueNumber = context.issue.number;
             const repository = context.repo;
-            const comments = await github.rest.issues.listComments({
+            await github.rest.reactions.createForIssue({
               ...repository,
               issue_number: issueNumber,
+              content: 'heart',
             });
-            if (comments.data.length > 0) {
-              return comments.data[0].id;
-            }
-            return null;
           token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: React to comment
-        uses: GrantBirki/comment@v2.0.8
-        with:
-          comment-id: ${{ steps.first-comment.outputs.result }}
-          reactions: "heart"
 
       - name: Comment
         uses: peter-evans/create-or-update-comment@v1
