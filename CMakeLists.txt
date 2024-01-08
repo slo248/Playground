@@ -5,18 +5,26 @@ set(CMAKE_CXX_STANDARD 17)
 
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 
-find_package(SFML 2.6 COMPONENTS graphics window system audio REQUIRED)
+find_package(SFML 2.6 COMPONENTS graphics window system audio)
 
 if(NOT SFML_FOUND)
     include(FetchContent)
+
     FetchContent_Declare(
-        sfml
+        SFML
         GIT_REPOSITORY https://github.com/SFML/SFML.git
-        GIT_TAG 2.6.0
+        GIT_TAG 2.6.1
     )
-    FetchContent_MakeAvailable(sfml)
-    set(SFML_LIBRARIES sfml-graphics sfml-window sfml-system sfml-audio)
+
+    FetchContent_GetProperties(SFML)
+
+    if(NOT SFML_POPULATED)
+        FetchContent_Populate(SFML)
+        add_subdirectory(${sfml_SOURCE_DIR} ${sfml_BINARY_DIR})
+    endif()
+
     set(SFML_INCLUDE_DIR ${sfml_SOURCE_DIR}/include)
+    set(SFML_LIBRARIES sfml-graphics sfml-window sfml-system sfml-audio)
 endif()
 
 add_executable(${PROJECT_NAME} ${SOURCES})
