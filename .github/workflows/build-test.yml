@@ -2,38 +2,65 @@ name: build-test
 
 on:
   push:
-    branches: [main]
-    paths-ignore:
-      - "README.md"
-  pull_request:
-    branches: [main]
-    paths-ignore:
-      - "README.md"
-  workflow_dispatch:
+    branches: [build-lib]
 
 jobs:
-  build:
+  Linux:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install libfreetype6-dev libx11-dev libxcursor-dev libxrandr-dev libudev-dev libgl1-mesa-dev libflac-dev libogg-dev libvorbis-dev libvorbisenc2 libvorbisfile3 libopenal-dev libpthread-stubs0-dev
+
+      - name: Build
+        run: |
+          mkdir build && cd build
+          cmake ..
+          cmake --build . --config Release
+
+      - name: Test
+        run: |
+          cd build
+          ctest -C Release -V
+
+  Windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
         uses: actions/checkout@v2
 
       - name: Build
         run: |
-          mkdir build
-          cd build
+          mkdir build && cd build
           cmake ..
-          cmake --build .
-  test:
-    runs-on: ubuntu-latest
-    needs: build
+          cmake --build . --config Release
+
+      - name: Test
+        run: |
+          cd build
+          ctest -C Release -V
+
+  MacOS:
+    runs-on: macos-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: |
+          brew install sfml
 
       - name: Build
         run: |
-          mkdir build
-          cd build
+          mkdir build && cd build
           cmake ..
-          cmake --build .
+          cmake --build . --config Release
+
+      - name: Test
+        run: |
+          cd build
+          ctest -C Release -V
