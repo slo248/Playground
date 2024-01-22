@@ -26,3 +26,8 @@ jobs:
         run: |
           cd build
           ctest -C Release -V
+
+      - name: Print last test log
+        run: |
+          cd build
+          cat Testing/Temporary/LastTest.log
