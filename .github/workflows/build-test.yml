@@ -21,3 +21,8 @@ jobs:
         run: |
           cd bin/Release
           ./Playground.exe
+
+      - name: Test
+        run: |
+          cd build
+          ctest -C Release -V
