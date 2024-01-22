@@ -13,6 +13,8 @@ set(BUILD_SHARED_LIBS ON)
 # Set output directory
 set(AllOutDir "${CMAKE_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE}")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${AllOutDir})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${AllOutDir})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${AllOutDir})
 #######################################################
 
 #######################################################
