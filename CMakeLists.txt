@@ -98,6 +98,7 @@ foreach(TEST_SOURCE ${TEST_SOURCES})
     # Link the test executable with any necessary libraries
     # Replace "MyLibrary" with the name of your library
     target_link_libraries(${TEST_NAME} mymath gtest gtest_main)
+    target_include_directories(${TEST_NAME} PRIVATE ${googletest_INCLUDE_DIRS})
 
     # Add the test
     # gtest_discover_tests(${TEST_NAME} WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
