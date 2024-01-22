@@ -2,7 +2,7 @@ name: window workflow
 
 on:
   push:
-    branches: [build-lib]
+    branches: [win]
 
 jobs:
   build-test:
@@ -20,4 +20,4 @@ jobs:
       - name: Run
         run: |
           cd bin/Release
-          ./test.exe
+          ./Playground.exe
