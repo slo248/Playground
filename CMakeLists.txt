@@ -20,28 +20,28 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${AllOutDir})
 
 #######################################################
 # Find SFML, if not found, download it
-find_package(SFML 2.6 COMPONENTS graphics window system audio)
+# find_package(SFML 2.6 COMPONENTS graphics window system audio)
 
-if(NOT SFML_FOUND)
-    include(FetchContent)
+# if(NOT SFML_FOUND)
+#     include(FetchContent)
 
-    FetchContent_Declare(
-        SFML
-        GIT_REPOSITORY https://github.com/SFML/SFML.git
-        GIT_TAG 2.6.1
-    )
+#     FetchContent_Declare(
+#         SFML
+#         GIT_REPOSITORY https://github.com/SFML/SFML.git
+#         GIT_TAG 2.6.1
+#     )
 
-    FetchContent_GetProperties(SFML)
+#     FetchContent_GetProperties(SFML)
 
-    if(NOT SFML_POPULATED)
-        FetchContent_Populate(SFML)
-        add_subdirectory(${sfml_SOURCE_DIR} ${sfml_BINARY_DIR})
-    endif()
+#     if(NOT SFML_POPULATED)
+#         FetchContent_Populate(SFML)
+#         add_subdirectory(${sfml_SOURCE_DIR} ${sfml_BINARY_DIR})
+#     endif()
 
-    set(SFML_INCLUDE_DIR ${sfml_SOURCE_DIR}/include)
-endif()
+#     set(SFML_INCLUDE_DIR ${sfml_SOURCE_DIR}/include)
+# endif()
 
-set(SFML_LIBRARIES sfml-graphics sfml-window sfml-system sfml-audio)
+# set(SFML_LIBRARIES sfml-graphics sfml-window sfml-system sfml-audio)
 #######################################################
 
 #######################################################
