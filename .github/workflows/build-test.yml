@@ -33,10 +33,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Install Dependencies
+        run: |
+          choco install ninja
+
       - name: Build
         run: |
           mkdir build && cd build
-          cmake .. -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_COMPILER=gcc
+          cmake .. -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_COMPILER=gcc -G "Ninja"
           cmake --build . --config Release
 
       - name: Test
