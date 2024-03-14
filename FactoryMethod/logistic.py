@@ -6,9 +6,9 @@ class Logistic(ABC):
     def createTransport(self):
         pass
 
-    def execute(self):
+    def execute(self, pkg):
         vehicle = self.createTransport()
-        vehicle.transport()
+        vehicle.transport(pkg)
 
 class TruckLogistic(Logistic):
     def createTransport(self):

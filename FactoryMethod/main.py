@@ -1,4 +1,6 @@
 from logistic import *
 
-TruckLogistic().execute()
-ShipLogistic().execute()
+pkg = 'Fish'
+
+TruckLogistic().execute(pkg)
+ShipLogistic().execute(pkg)

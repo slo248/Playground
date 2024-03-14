@@ -2,13 +2,13 @@ from abc import ABC, abstractmethod
 
 class Vehicle(ABC):
     @abstractmethod
-    def transport(pkg):
+    def transport(self,pkg):
         pass
 
 class Truck(Vehicle):
-    def transport(pkg):
-        print('Truck is transporting packages')
+    def transport(self,pkg):
+        print(f'Truck is transporting {pkg}')
 
 class Ship(Vehicle):
-    def transport(pkg):
-        print('Ship is transporting packages')
+    def transport(self,pkg):
+        print(f'Ship is transporting {pkg}')
