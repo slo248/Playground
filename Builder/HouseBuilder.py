@@ -1,7 +1,6 @@
-from abc import ABC, abstractmethod
 from House import *
 
-class HouseBuilder(ABC):
+class HouseBuilder:
     def __init__(self):
         self.result=House()
 
