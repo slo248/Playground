@@ -47,9 +47,18 @@ function getUsers() {
 ////
 
 // From clients
+// We want to get the users commented
 Promise.all([getUsers(), getComments()]).then(([users, comments]) => {
-  let ids = comments.map((comment) => comment.user_id);
-  let result = users.filter((user) => ids.includes(user.id));
-  console.log(result);
+  //   let comment = comments.find((comment) => comment.user_id == 1);
+  let result = users.reduce((acc, user) => {
+    let comment = comments.find((comment) => user.id == comment.user_id);
+    if (comment) acc.push({ name: user.name, comment: comment.content });
+    else console.log(`Comment of user ${user.name} not found`);
+    return acc;
+  }, []);
+  let userList = document.querySelector(".user--commented");
+  result.forEach((user) => {
+    userList.innerHTML += `<li>${user.name}: ${user.comment}</li>`;
+  });
 });
 ////
