@@ -17,9 +17,14 @@
       "title": "Blog 3",
       "author_id": 1,
       "content": "This is the third blog"
+    },
+    {
+      "title": "kxfdjk",
+      "content": "kldjfkj",
+      "id": 3
     }
   ],
-  "authors": [
+  "users": [
     {
       "id": 0,
       "name": "John Doe",
@@ -39,6 +44,11 @@
       "id": 3,
       "name": "Toka Miwow",
       "email": "nothing2@jk.com"
+    },
+    {
+      "name": "Phuc",
+      "email": "slo@grab.com",
+      "id": 4
     }
   ]
 }

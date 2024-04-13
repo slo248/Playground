@@ -8,5 +8,19 @@
   <body>
     <h1>My blogs</h1>
     <ul class="blogs"></ul>
+    <form action="http://localhost:3000/blogs" method="post">
+      <div class="form-block">
+        <label for="title">Title</label>
+        <br />
+        <input type="text" name="title" id="title" />
+      </div>
+      <div class="form-block">
+        <label for="title">Content</label>
+        <br />
+        <textarea name="content" id="content" cols="30" rows="10"></textarea>
+      </div>
+      <button type="submit">Send</button>
+    </form>
+    <script src="./index.js"></script>
   </body>
 </html>
