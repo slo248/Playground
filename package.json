@@ -1,17 +1,15 @@
 {
   "name": "playground",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node app.js && json-server --watch db.json --port 3001",
+    "start": "json-server --watch db.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^4.19.2",
-    "http": "^0.0.1-security",
     "json-server": "^0.17.4"
   }
 }
